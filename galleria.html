@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galleria · PROGETTO CASA</title>
+<style>
+:root{--wine:#6f1d2c;--cream:#f4f0e9;--ink:#25221f;--paper:#fffdf9}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{position:sticky;top:0;z-index:5;background:rgba(244,240,233,.94);backdrop-filter:blur(12px);border-bottom:1px solid #ddd3c7}
+.bar{max-width:1200px;margin:auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand b{color:var(--wine);letter-spacing:.08em}.brand small{display:block;color:#776f68;margin-top:3px}
+.actions{display:flex;gap:8px}.btn{border:1px solid #cbbdb0;background:var(--paper);padding:9px 12px;border-radius:999px;cursor:pointer;text-decoration:none;color:var(--ink)}
+main{max-width:1200px;margin:auto;padding:36px 20px 70px}.hero h1{font-family:Georgia,serif;color:var(--wine);font-size:clamp(38px,7vw,72px);margin:0 0 8px}.hero p{color:#746b64;margin:0 0 34px}
+h2{font-family:Georgia,serif;color:var(--wine);font-size:32px;margin:48px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.photo{border:0;padding:0;background:#ddd;border-radius:16px;overflow:hidden;cursor:zoom-in;min-height:260px}
+.photo img{display:block;width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .25s}.photo:hover img{transform:scale(1.02)}
+.video-card{background:var(--paper);border:1px solid #ddd3c7;border-radius:18px;padding:20px}.video-card video{width:100%;border-radius:12px;background:#111;max-height:72vh}
+.note{font-size:14px;color:#746b64;margin-top:10px}
+.lightbox{display:none;position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:20px}.lightbox.open{display:flex}
+.lightbox img{max-width:96vw;max-height:92vh;object-fit:contain}.close{position:absolute;right:18px;top:14px;color:white;font-size:38px;border:0;background:none;cursor:pointer}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.photo{min-height:200px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.bar{align-items:flex-start}.photo{min-height:280px}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <div class="brand"><b>PROGETTO CASA</b><small>Galleria</small></div>
+  <div class="actions"><button class="btn" onclick="history.back()">← Indietro</button><a class="btn" href="index.html">Home</a></div>
+</div></header>
+
+<main>
+<section class="hero"><h1>Galleria</h1><p>Raccolta fotografica degli spazi esterni, di giorno e di notte.</p></section>
+
+<h2>Vista di giorno</h2>
+<div class="grid">
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/giorno/01_giorno.jpeg" alt="Vista di giorno 1"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/giorno/02_giorno.jpeg" alt="Vista di giorno 2"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/giorno/03_giorno.jpeg" alt="Vista di giorno 3"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/giorno/04_giorno.jpeg" alt="Vista di giorno 4"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/giorno/05_giorno.jpeg" alt="Vista di giorno 5"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/giorno/06_giorno.jpeg" alt="Vista di giorno 6"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/giorno/07_giorno.jpeg" alt="Vista di giorno 7"></button>
+</div>
+
+<h2>Video di giorno</h2>
+<p><b>Parte 1</b></p>
+<div class="video-card">
+  <video controls playsinline preload="metadata">
+    <source src="video/filmato_parte1.mov" type="video/quicktime">
+    Il browser non riesce a riprodurre questo video.
+  </video>
+</div>
+<p><b>Parte 2</b></p>
+<div class="video-card">
+  <video controls playsinline preload="metadata">
+    <source src="video/filmato_parte2.mov" type="video/quicktime">
+    Il browser non riesce a riprodurre questo video.
+  </video>
+</div>
+<p><b>Parte 3</b></p>
+<div class="video-card">
+  <video controls playsinline preload="metadata">
+    <source src="video/filmato_parte3.mov" type="video/quicktime">
+    Il browser non riesce a riprodurre questo video.
+  </video>
+</div>
+
+<h2>Vista notte</h2>
+<div class="grid">
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/notte/01_notte.jpeg" alt="Vista notte 1"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/notte/02_notte.jpeg" alt="Vista notte 2"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/notte/03_notte.jpeg" alt="Vista notte 3"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/notte/04_notte.jpeg" alt="Vista notte 4"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/notte/05_notte.jpeg" alt="Vista notte 5"></button>
+<button class="photo" onclick="openImg(this)"><img src="images/galleria/notte/06_notte.jpeg" alt="Vista notte 6"></button>
+</div>
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeImg(event)">
+<button class="close" onclick="closeImg(event)">×</button><img id="big" alt="">
+</div>
+<script>
+if(sessionStorage.getItem("pc_auth")!=="1"){location.href="index.html";}
+function openImg(el){document.getElementById("big").src=el.querySelector("img").src;document.getElementById("lightbox").classList.add("open");}
+function closeImg(e){e.stopPropagation();document.getElementById("lightbox").classList.remove("open");}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("lightbox").classList.remove("open")});
+</script>
+</body></html>
