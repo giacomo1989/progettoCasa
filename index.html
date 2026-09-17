@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Progetto Casa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="login" class="screen center">
+  <div class="login-card">
+    <div class="mark">PC</div><h1>PROGETTO CASA</h1>
+    <p>Area riservata</p>
+    <input id="pw" type="password" placeholder="Password" autocomplete="current-password">
+    <button onclick="login()">ACCEDI</button>
+    <div id="error"></div>
+  </div>
+</section>
+
+<section id="app" class="screen hidden">
+<header><div><b>PROGETTO CASA</b><small>Archivio interattivo</small></div><button class="ghost" onclick="logout()">ESCI</button></header>
+<main>
+  <div id="home">
+    <h2>Home</h2><p class="lead">Seleziona una sezione del progetto.</p>
+    <div class="grid">
+      <button class="card" onclick="openSection('Cucina esterna','Progetto della cucina e della zona conviviale esterna.')"><span>01</span><b>Cucina esterna</b><small>Apri sezione →</small></button>
+      <button class="card" onclick="openSection('Scantinati','Taverna, sala cinema, sala giochi, studio, hall e accessi.')"><span>02</span><b>Scantinati</b><small>Apri sezione →</small></button>
+      <button class="card" onclick="openSection('Interni primo piano','Ambienti, arredi e interventi del primo piano.')"><span>03</span><b>Interni primo piano</b><small>Apri sezione →</small></button>
+      <button class="card" onclick="openSection('Carcareddhra','Suite esterna, bagno, living, veranda e area relax.')"><span>04</span><b>Carcareddhra</b><small>Apri sezione →</small></button>
+      <button class="card" onclick="openSection('Bagno esterno','Progetto e materiali del bagno esterno.')"><span>05</span><b>Bagno esterno</b><small>Apri sezione →</small></button>
+      <button class="card" onclick="openSection('Galleria','Foto, render e confronti del progetto.')"><span>06</span><b>Galleria</b><small>Apri sezione →</small></button>
+      <button class="card private" onclick="openSection('Planimetrie','Documentazione riservata conservata su Google Drive.')"><span>07</span><b>Planimetrie 🔒</b><small>Area privata →</small></button>
+      <button class="card private" onclick="openSection('Budget','Documentazione economica riservata conservata su Google Drive.')"><span>08</span><b>Budget 🔒</b><small>Area privata →</small></button>
+    </div>
+  </div>
+  <div id="section" class="hidden">
+    <button class="back" onclick="goHome()">← Home</button>
+    <div class="section-box"><p>PROGETTO CASA</p><h2 id="st"></h2><div class="rule"></div><p id="sd"></p><p class="placeholder">Sezione predisposta per l'inserimento progressivo di documenti, immagini, render e sottosezioni.</p></div>
+  </div>
+</main>
+</section>
+<script src="app.js"></script>
+</body></html>
